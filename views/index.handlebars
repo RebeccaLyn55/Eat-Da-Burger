@@ -1,0 +1,43 @@
+<h1 style="text-align:center; font-family:arial;">Eat-Da-Burger!</h1>
+
+<div style = "text-align:center;"> <img src="http://www.tellusaboutus.com/comments/images/BK-WebComment/BB_WHOPPER-v1.png" ></div>
+
+<ul>
+  {{#each burger}}
+    <li>
+      <p style="color:blue">
+        {{this.burger}}
+
+        <form action="/{{this.id}}?_method=DELETE" method="POST">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <input type="hidden" name="burger" value="{{this.burger}}">
+        </form>
+      </p>
+    </li>
+  {{/each}}
+</ul>
+
+<h1 style="font-family:arial;">Choose a Burger</h1>
+<form method="POST" action="/" class="button-size">
+  <textarea type="text" name="burger"></textarea>
+  <br><br>
+  <button type="submit">Devour It</button>
+</form>
+
+<h1 style="font-family:arial;">Devoured Burgers</h1>
+
+<ul>
+  {{#each deleted}}
+    <li>
+      <p style="color:blue">
+        {{this.burger}}
+
+        <form action="/{{this.id}}?_method=DELETE" method="POST">
+          <input type="visible" name="id" value="{{this.id}}">
+          <input type="hidden" name="burger" value="{{this.burger}}">
+          <button type="submit">Delete</button>
+        </form>
+      </p>
+    </li>
+  {{/each}}
+</ul>
