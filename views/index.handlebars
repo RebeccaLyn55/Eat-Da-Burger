@@ -1,43 +1,45 @@
-<h1 style="text-align:center; font-family:arial;">Eat-Da-Burger!</h1>
+<h1 class = "title">Eat-Da-Burger!</h1>
 
-<div style = "text-align:center;"> <img src="http://www.tellusaboutus.com/comments/images/BK-WebComment/BB_WHOPPER-v1.png" ></div>
+<div class="burger-image"> <img class="image" src="assets/burger.png" ></div>
+
+
+<div class="Burger-Choice">
+  <h1>Choose a Burger</h1>
+    <form method="POST" action="/" class="button-size">
+    <textarea type="text" name="burger"></textarea>
+    <br><br>
+    <button type="submit" class="buttons">Make a Burger</button>
+  </form>
+</div>
 
 <ul>
-  {{#each burger}}
-    <li>
-      <p style="color:blue">
-        {{this.burger}}
+  {{#each burgers}}
+    {{#unless this.devoured}}
+      <li>
+        <p>
+          {{this.burger_name}}
 
-        <form action="/{{this.id}}?_method=DELETE" method="POST">
-          <input type="hidden" name="id" value="{{this.id}}">
-          <input type="hidden" name="burger" value="{{this.burger}}">
-        </form>
-      </p>
-    </li>
+          <form action="/{{this.id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="id" value="{{this.id}}">
+            <input type="hidden" name="burger" value="{{this.burger_name}}">
+            <button type="submit" class="buttons">Devour It</button>
+          </form>
+        </p>
+      </li>
+    {{/unless}}
   {{/each}}
 </ul>
 
-<h1 style="font-family:arial;">Choose a Burger</h1>
-<form method="POST" action="/" class="button-size">
-  <textarea type="text" name="burger"></textarea>
-  <br><br>
-  <button type="submit">Devour It</button>
-</form>
-
-<h1 style="font-family:arial;">Devoured Burgers</h1>
-
-<ul>
-  {{#each deleted}}
-    <li>
-      <p style="color:blue">
-        {{this.burger}}
-
-        <form action="/{{this.id}}?_method=DELETE" method="POST">
-          <input type="visible" name="id" value="{{this.id}}">
-          <input type="hidden" name="burger" value="{{this.burger}}">
-          <button type="submit">Delete</button>
-        </form>
-      </p>
-    </li>
-  {{/each}}
-</ul>
+<div class="Devoured-Burgers">
+<h1>Devoured Burgers</h1>
+  <ul>
+    {{#each burgers}}
+      {{#if this.devoured}}
+        <li>
+          <p>
+            {{this.burger_name}}
+          </p>
+       </li>
+      {{/if}}
+    {{/each}}
+  </ul>

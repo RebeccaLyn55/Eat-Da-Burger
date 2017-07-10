@@ -4,7 +4,11 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.15.3"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.9",
+    "mysql": "^2.13.0"
   },
   "devDependencies": {},
   "scripts": {

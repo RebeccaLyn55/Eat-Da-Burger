@@ -1,0 +1,41 @@
+p{
+	font-family: 'Rock Salt', cursive;
+}
+
+ul{
+	float:left;
+	font-weight:bold;
+	font-size:20px;
+}
+
+.image{
+	width:25%;
+}
+
+.burger-image{
+	text-align:center;
+}
+
+.buttons{
+	background-color:teal;
+	color:white;
+	font-family: 'Rock Salt', cursive;
+	font-size:12px;
+}
+
+.title{
+	text-align:center; 
+	font-family: 'Rock Salt', cursive;
+}
+
+.Burger-Choice{
+	font-family: 'Rock Salt', cursive;
+	float:left;
+	margin-left:100px;
+}
+
+.Devoured-Burgers{
+	font-family: 'Rock Salt', cursive;
+	float:right;
+	margin-right:100px;
+}
