@@ -7,16 +7,17 @@
   <h1>Choose a Burger</h1>
     <form method="POST" action="/" class="button-size">
     <textarea type="text" name="burger"></textarea>
-    <br><br>
+    <br>
     <button type="submit" class="buttons">Make a Burger</button>
   </form>
 </div>
+
+
 
 <ul>
   {{#each burgers}}
     {{#unless this.devoured}}
       <li>
-        <p>
           {{this.burger_name}}
 
           <form action="/{{this.id}}?_method=DELETE" method="POST">
@@ -24,7 +25,6 @@
             <input type="hidden" name="burger" value="{{this.burger_name}}">
             <button type="submit" class="buttons">Devour It</button>
           </form>
-        </p>
       </li>
     {{/unless}}
   {{/each}}
@@ -36,9 +36,7 @@
     {{#each burgers}}
       {{#if this.devoured}}
         <li>
-          <p>
-            {{this.burger_name}}
-          </p>
+            {{this.burger_name}}  
        </li>
       {{/if}}
     {{/each}}
